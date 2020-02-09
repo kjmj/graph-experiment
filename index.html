@@ -6,9 +6,8 @@
 
 <body>
   <h1> Experiment </h1>
-</body>
-<button type = "button" id = "refresh" onClick="window.location.reload();">Refresh Page</button>
 
+</body>
 
 <script>
   console.log(d3); // test if d3 is loaded
@@ -21,10 +20,9 @@
   const svg = d3.select("body").append("svg").attr("width", width).attr("height", height);
 
 
-  //set "Refresh Page" button position
-  document.getElementById("refresh").style.position = "absolute";
-
-  svg.append("text").attr("x", 400).attr("y", 75).attr("fill", "white").attr("font-size", "62px").text("Welcome to this really random D3.js demo!").on("click", toggleColor);
+  svg.append("text").attr("x", 400).attr("y", 75).attr("fill", "black").attr("font-size", "62px").text("Welcome to our Experiment!");
+  svg.append("text").attr("x", 600).attr("y", 175).attr("fill", "black").attr("font-size", "24px").text("You will be asked to judge");
+  svg.append("text").attr("x", 600).attr("y", 225).attr("fill", "black").attr("font-size", "24px").text("(to be determined...)");
 
 
 
@@ -36,4 +34,5 @@
   //TODO add code to calculate error
   //TODO add code for confidence intervals
   //TODO create graph to show results
+  //Useful link maybe: https://www.d3-graph-gallery.com/graph/interactivity_button.html
 </script>
