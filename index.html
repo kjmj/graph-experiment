@@ -43,6 +43,22 @@
     return result;
   }
 
+  var barwidth = 50;
+  var barloc = 570;
+
+  const bar1 = svg.append("rect").attr("x", barloc + (0 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", getRandomInt(50, 100)).attr("fill", "white").attr("stroke", "black");
+  const bar2 = svg.append("rect").attr("x", barloc + (1 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", getRandomInt(50, 100)).attr("fill", "white").attr("stroke", "black");
+  const bar3 = svg.append("rect").attr("x", barloc + (2 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", getRandomInt(50, 100)).attr("fill", "white").attr("stroke", "black");
+  const bar4 = svg.append("rect").attr("x", barloc + (3 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", getRandomInt(50, 100)).attr("fill", "white").attr("stroke", "black");
+  const bar5 = svg.append("rect").attr("x", barloc + (4 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", getRandomInt(50, 100)).attr("fill", "white").attr("stroke", "black");
+  const bar6 = svg.append("rect").attr("x", barloc + (5 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", getRandomInt(50, 100)).attr("fill", "white").attr("stroke", "black");
+  const bar7 = svg.append("rect").attr("x", barloc + (6 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", getRandomInt(50, 100)).attr("fill", "white").attr("stroke", "black");
+
+  var dotloc = getRandomInt(0, 4);
+
+  const dot1 = svg.append("circle").attr("cx", barloc + (dotloc * barwidth) + (barwidth/2)).attr("cy", 400).attr("r", 4).attr("fill", "black").attr("stroke", "black");
+  const dot2 = svg.append("circle").attr("cx", barloc + ((dotloc+2) * barwidth) + (barwidth/2)).attr("cy", 400).attr("r", 4).attr("fill", "black").attr("stroke", "black");
+
 
   //TODO decide on what we are testing
   //TODO javascript for trial setup (1 question at a time)
