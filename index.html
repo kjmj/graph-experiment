@@ -5,7 +5,6 @@
 </style>
 
 <body>
-  <h1> Experiment </h1>
 
 </body>
 
@@ -21,9 +20,28 @@
 
 
   svg.append("text").attr("x", 400).attr("y", 75).attr("fill", "black").attr("font-size", "62px").text("Welcome to our Experiment!");
-  svg.append("text").attr("x", 600).attr("y", 175).attr("fill", "black").attr("font-size", "24px").text("You will be asked to judge");
-  svg.append("text").attr("x", 600).attr("y", 225).attr("fill", "black").attr("font-size", "24px").text("(to be determined...)");
+  svg.append("text").attr("x", 550).attr("y", 175).attr("fill", "black").attr("font-size", "24px").text("You will see bar, pie, and bubble charts.");
+  svg.append("text").attr("x", 550).attr("y", 225).attr("fill", "black").attr("font-size", "24px").text("Please insert the what percent the smaller");
+  svg.append("text").attr("x", 525).attr("y", 275).attr("fill", "black").attr("font-size", "24px").text("marked bar/slice/bubble is of the bigger marked");
+  svg.append("text").attr("x", 600).attr("y", 325).attr("fill", "black").attr("font-size", "24px").text("bar/slice/bubble. Thank You!");
 
+
+  //Returns a random int between min and max
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
+  //Returns an array of random points in a pre-defined area
+  function randPoints(numofpoints) {
+    const result = [];
+    for(let i = 0; i < numofpoints; i++) {
+      let temp = [getRandomInt(1400, 1700), getRandomInt(200, 400)];
+      result.push(temp);
+    }
+    return result;
+  }
 
 
   //TODO decide on what we are testing
