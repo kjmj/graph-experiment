@@ -13,14 +13,12 @@ class Graph2 extends React.Component {
   }
 
   drawBarChart(data) {
-    const canvasHeight = 400;
-    const canvasWidth = 600;
-    const scale = 20;
+    const scale = 60;
 
     const svgCanvas = d3.select(this.divRef.current)
         .append("svg")
-        .attr("width", canvasWidth)
-        .attr("height", canvasHeight)
+        .attr("width", this.props.width)
+        .attr("height", this.props.height)
         .style("border", "1px solid black");
     svgCanvas.selectAll("rect")
         .data(data).enter().append("rect")
@@ -28,7 +26,7 @@ class Graph2 extends React.Component {
         .attr("height", (datapoint) => datapoint * scale)
         .attr("fill", "orange")
         .attr("x", (datapoint, iteration) => iteration * 45)
-        .attr("y", (datapoint) => canvasHeight - datapoint * scale);
+        .attr("y", (datapoint) => this.props.height - datapoint * scale);
   }
 
   render() {

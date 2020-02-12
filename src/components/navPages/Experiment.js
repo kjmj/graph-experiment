@@ -71,7 +71,7 @@ class Experiment extends React.Component {
   render() {
     return (
         <div className="Experiment">
-          <this.state.activeComponent/>
+          <this.state.activeComponent width={1900} height={920}/>
           <Button onClick={() => this.handleButtonClick()}>{this.getButtonText()}</Button>
         </div>
     );

@@ -12,12 +12,8 @@ class Graph1 extends React.Component {
   }
 
   drawBarChart() {
-    //set width and height
-    const width = 1900;
-    const height = 920;
-
     // Add an SVG
-    const svg = d3.select(this.divRef.current).append("svg").attr("width", width).attr("height", height);
+    const svg = d3.select(this.divRef.current).append("svg").attr("width", this.props.width).attr("height", this.props.height);
 
 
     //Returns a random int between min and max
