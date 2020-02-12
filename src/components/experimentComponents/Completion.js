@@ -3,7 +3,7 @@ import React from 'react';
 function Completion() {
   return (
       <div className="Completion">
-        <p>Completion Component</p>
+        <p>Thanks for completing our experiment!</p>
       </div>
   );
 }

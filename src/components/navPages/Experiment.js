@@ -28,7 +28,7 @@ class Experiment extends React.Component {
 
     // if we have iterated thru all components, alert them that they're done
     if (this.state.onCompletionPage) {
-      alert("You're done!")
+      alert("We should probably analyze data here")
     }
 
     // if we have seen all components, we are on the completion page
