@@ -2,6 +2,8 @@ import React from 'react';
 import * as d3 from 'd3';
 
 class Graph4 extends React.Component {
+  static graphType = "Pie";
+
   constructor(props) {
     super(props);
     this.divRef = React.createRef();
