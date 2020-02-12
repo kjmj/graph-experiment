@@ -5,6 +5,7 @@ import Description from "../experimentComponents/Description"
 import Graph1 from "../experimentComponents/Graph1"
 import Graph2 from "../experimentComponents/Graph2"
 import Graph3 from "../experimentComponents/Graph3"
+import Graph4 from "../experimentComponents/Graph4"
 import Completion from "../experimentComponents/Completion"
 
 class Experiment extends React.Component {
@@ -12,7 +13,7 @@ class Experiment extends React.Component {
     super(props);
 
     // List of components we want to display to user in random order
-    const components = [Graph1, Graph2, Graph3];
+    const components = [Graph1, Graph2, Graph3, Graph4];
     this.state = {
       components: components,
       activeComponent: Description,

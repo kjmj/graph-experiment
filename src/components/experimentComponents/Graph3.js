@@ -1,7 +1,7 @@
 import React from 'react';
 import * as d3 from 'd3';
 
-class Graph1 extends React.Component {
+class Graph3 extends React.Component {
   constructor(props) {
     super(props);
     this.divRef = React.createRef();
@@ -105,4 +105,4 @@ class Graph1 extends React.Component {
   }
 }
 
-export default Graph1;
+export default Graph3;
