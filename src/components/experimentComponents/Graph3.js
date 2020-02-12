@@ -33,35 +33,7 @@ class Graph1 extends React.Component {
       return result;
     }
 
-    function getHeight(num) {
-      switch (num) {
-        case 0:
-          return height1;
-        case 1:
-          return height2;
-        case 2:
-          return height3;
-        case 3:
-          return height4;
-        case 4:
-          return height5;
-        case 5:
-          return height6;
-        case 6:
-          return height7;
-        case 7:
-          return height8;
-        case 8:
-          return height9;
-        case 9:
-          return height10;
 
-      }
-
-    }
-
-
-    var barloc = 300;
 
     const height1 = getRandomInt(30, 50);
     const height2 = getRandomInt(30, 50);
@@ -75,21 +47,53 @@ class Graph1 extends React.Component {
     const height10 = getRandomInt(30, 50);
 
 
-    const bar1 = svg.append("rect").attr("x", 770).attr("y", barloc).attr("width", 50).attr("height", height1).attr("fill", "white").attr("stroke", "black");
-    const bar2 = svg.append("rect").attr("x", 770).attr("y", barloc + height1).attr("width", 50).attr("height", height2).attr("fill", "white").attr("stroke", "black");
-    const bar3 = svg.append("rect").attr("x", 770).attr("y", barloc + height2).attr("width", 50).attr("height", height3).attr("fill", "white").attr("stroke", "black");
-    const bar4 = svg.append("rect").attr("x", 770).attr("y", barloc + height3).attr("width", 50).attr("height", height4).attr("fill", "white").attr("stroke", "black");
-    const bar5 = svg.append("rect").attr("x", 770).attr("y", barloc + height4).attr("width", 50).attr("height", height5).attr("fill", "white").attr("stroke", "black");
-    const bar6 = svg.append("rect").attr("x", 770).attr("y", barloc + height5).attr("width", 50).attr("height", height6).attr("fill", "white").attr("stroke", "black");
-    const bar7 = svg.append("rect").attr("x", 770).attr("y", barloc + height6).attr("width", 50).attr("height", height7).attr("fill", "white").attr("stroke", "black");
-    const bar8 = svg.append("rect").attr("x", 770).attr("y", barloc + height7).attr("width", 50).attr("height", height8).attr("fill", "white").attr("stroke", "black");
-    const bar9 = svg.append("rect").attr("x", 770).attr("y", barloc + height8).attr("width", 50).attr("height", height9).attr("fill", "white").attr("stroke", "black");
-    const bar10 = svg.append("rect").attr("x", 770).attr("y", barloc + height9).attr("width", 50).attr("height",height10).attr("fill", "white").attr("stroke", "black");
+    const height1to5 = height1 + height2 + height3 + height4 + height5;
+
+    function getHeight(num) {
+      switch (num) {
+        case 0:
+          return 0;
+        case 1:
+          return height1;
+        case 2:
+          return height1 + height2;
+        case 3:
+          return height1 + height2 + height3;
+        case 4:
+          return height1 + height2 + height3 + height4;
+        case 5:
+          return height1to5;
+        case 6:
+          return height1to5 + height6;
+        case 7:
+          return height1to5 + height6 + height7;
+        case 8:
+          return height1to5 + height6 + height7 + height8;
+        case 9:
+          return height1to5 + height6 + height7 + height8 + height9;
+        case 10:
+      }
+    }
+
+
+    var barloc = 300;
+
+
+    const bar1 = svg.append("rect").attr("x", 770).attr("y", barloc + getHeight(0)).attr("width", 50).attr("height", height1).attr("fill", "white").attr("stroke", "black");
+    const bar2 = svg.append("rect").attr("x", 770).attr("y", barloc + getHeight(1)).attr("width", 50).attr("height", height2).attr("fill", "white").attr("stroke", "black");
+    const bar3 = svg.append("rect").attr("x", 770).attr("y", barloc + getHeight(2)).attr("width", 50).attr("height", height3).attr("fill", "white").attr("stroke", "black");
+    const bar4 = svg.append("rect").attr("x", 770).attr("y", barloc + getHeight(3)).attr("width", 50).attr("height", height4).attr("fill", "white").attr("stroke", "black");
+    const bar5 = svg.append("rect").attr("x", 770).attr("y", barloc + getHeight(4)).attr("width", 50).attr("height", height5).attr("fill", "white").attr("stroke", "black");
+    const bar6 = svg.append("rect").attr("x", 770).attr("y", barloc + getHeight(5)).attr("width", 50).attr("height", height6).attr("fill", "white").attr("stroke", "black");
+    const bar7 = svg.append("rect").attr("x", 770).attr("y", barloc + getHeight(6)).attr("width", 50).attr("height", height7).attr("fill", "white").attr("stroke", "black");
+    const bar8 = svg.append("rect").attr("x", 770).attr("y", barloc + getHeight(7)).attr("width", 50).attr("height", height8).attr("fill", "white").attr("stroke", "black");
+    const bar9 = svg.append("rect").attr("x", 770).attr("y", barloc + getHeight(8)).attr("width", 50).attr("height", height9).attr("fill", "white").attr("stroke", "black");
+    const bar10 = svg.append("rect").attr("x", 770).attr("y", barloc + getHeight(9)).attr("width", 50).attr("height",height10).attr("fill", "white").attr("stroke", "black");
 
     var dotloc = getRandomInt(0, 7);
 
-    const dot1 = svg.append("circle").attr("cx", 795).attr("cy", barloc + (dotloc * getHeight(dotloc)) + (getHeight(dotloc) / 2)).attr("r", 4).attr("fill", "black").attr("stroke", "black");
-    const dot2 = svg.append("circle").attr("cx", 795).attr("cy", barloc + ((dotloc + 2) * getHeight(dotloc)) + (getHeight(dotloc) / 2)).attr("r", 4).attr("fill", "black").attr("stroke", "black");
+    const dot1 = svg.append("circle").attr("cx", 795).attr("cy", 15 + barloc + getHeight(dotloc)).attr("r", 4).attr("fill", "black").attr("stroke", "black");
+    const dot2 = svg.append("circle").attr("cx", 795).attr("cy", 15 + barloc + getHeight(dotloc + 2)).attr("r", 4).attr("fill", "black").attr("stroke", "black");
   }
 
   render() {
