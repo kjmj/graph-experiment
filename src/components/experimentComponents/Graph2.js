@@ -2,6 +2,11 @@ import React from 'react';
 import * as d3 from 'd3';
 
 class Graph2 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.divRef = React.createRef();
+  }
+
   componentDidMount() {
     const data = [2, 4, 2, 6, 8];
     this.drawBarChart(data)
@@ -12,7 +17,7 @@ class Graph2 extends React.Component {
     const canvasWidth = 600;
     const scale = 20;
 
-    const svgCanvas = d3.select(this.refs.canvas)
+    const svgCanvas = d3.select(this.divRef.current)
         .append("svg")
         .attr("width", canvasWidth)
         .attr("height", canvasHeight)
@@ -27,7 +32,11 @@ class Graph2 extends React.Component {
   }
 
   render() {
-    return <div ref="canvas"><p>This is a quick graph I created</p></div>
+    return (
+        <div ref={this.divRef}>
+          <p>This is a quick graph I created</p>
+        </div>
+    )
   }
 }
 

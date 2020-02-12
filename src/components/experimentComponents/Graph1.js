@@ -2,6 +2,11 @@ import React from 'react';
 import * as d3 from 'd3';
 
 class Graph1 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.divRef = React.createRef();
+  }
+
   componentDidMount() {
     this.drawBarChart()
   }
@@ -12,7 +17,7 @@ class Graph1 extends React.Component {
     const height = 920;
 
     // Add an SVG
-    const svg = d3.select(this.refs.canvas).append("svg").attr("width", width).attr("height", height);
+    const svg = d3.select(this.divRef.current).append("svg").attr("width", width).attr("height", height);
 
 
     //Returns a random int between min and max
@@ -47,12 +52,14 @@ class Graph1 extends React.Component {
 
     const dot1 = svg.append("circle").attr("cx", barloc + (dotloc * barwidth) + (barwidth / 2)).attr("cy", 400).attr("r", 4).attr("fill", "black").attr("stroke", "black");
     const dot2 = svg.append("circle").attr("cx", barloc + ((dotloc + 2) * barwidth) + (barwidth / 2)).attr("cy", 400).attr("r", 4).attr("fill", "black").attr("stroke", "black");
-
   }
 
   render() {
-    return <div ref="canvas"><p>Here is the other graph, transferred over. You might have to scroll to find the "next"
-      button</p></div>
+    return (
+        <div ref={this.divRef}>
+          <p>Here is the other graph, transferred over. You might have to scroll to find the "next" button</p>
+        </div>
+    )
   }
 }
 
