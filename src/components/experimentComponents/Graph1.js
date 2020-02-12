@@ -3,19 +3,16 @@ import * as d3 from 'd3';
 
 class Graph1 extends React.Component {
   componentDidMount() {
-    const data = [ 2, 4, 2, 6, 8 ];
-    this.drawBarChart(data)
+    this.drawBarChart()
   }
 
-  drawBarChart(data) {
+  drawBarChart() {
     //set width and height
     const width = 1900;
     const height = 920;
 
     // Add an SVG
     const svg = d3.select(this.refs.canvas).append("svg").attr("width", width).attr("height", height);
-
-
 
 
     //Returns a random int between min and max
@@ -28,7 +25,7 @@ class Graph1 extends React.Component {
     //Returns an array of random points in a pre-defined area
     function randPoints(numofpoints) {
       const result = [];
-      for(let i = 0; i < numofpoints; i++) {
+      for (let i = 0; i < numofpoints; i++) {
         let temp = [getRandomInt(1400, 1700), getRandomInt(200, 400)];
         result.push(temp);
       }
@@ -48,11 +45,15 @@ class Graph1 extends React.Component {
 
     var dotloc = getRandomInt(0, 4);
 
-    const dot1 = svg.append("circle").attr("cx", barloc + (dotloc * barwidth) + (barwidth/2)).attr("cy", 400).attr("r", 4).attr("fill", "black").attr("stroke", "black");
-    const dot2 = svg.append("circle").attr("cx", barloc + ((dotloc+2) * barwidth) + (barwidth/2)).attr("cy", 400).attr("r", 4).attr("fill", "black").attr("stroke", "black");
+    const dot1 = svg.append("circle").attr("cx", barloc + (dotloc * barwidth) + (barwidth / 2)).attr("cy", 400).attr("r", 4).attr("fill", "black").attr("stroke", "black");
+    const dot2 = svg.append("circle").attr("cx", barloc + ((dotloc + 2) * barwidth) + (barwidth / 2)).attr("cy", 400).attr("r", 4).attr("fill", "black").attr("stroke", "black");
 
   }
-  render() { return <div ref="canvas"><p>Here is the other graph, transferred over. You might have to scroll to find the "next" button</p></div> }
+
+  render() {
+    return <div ref="canvas"><p>Here is the other graph, transferred over. You might have to scroll to find the "next"
+      button</p></div>
+  }
 }
 
 export default Graph1;

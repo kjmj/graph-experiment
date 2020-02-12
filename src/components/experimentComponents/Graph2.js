@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 
 class Graph2 extends React.Component {
   componentDidMount() {
-    const data = [ 2, 4, 2, 6, 8 ];
+    const data = [2, 4, 2, 6, 8];
     this.drawBarChart(data)
   }
 
@@ -25,7 +25,10 @@ class Graph2 extends React.Component {
         .attr("x", (datapoint, iteration) => iteration * 45)
         .attr("y", (datapoint) => canvasHeight - datapoint * scale);
   }
-  render() { return <div ref="canvas"><p>This is a quick graph I created</p></div> }
+
+  render() {
+    return <div ref="canvas"><p>This is a quick graph I created</p></div>
+  }
 }
 
 export default Graph2;
