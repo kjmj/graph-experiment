@@ -16,7 +16,8 @@ class Experiment extends React.Component {
       components: components,
       activeComponent: Description,
       onFirstPage: true,
-      onCompletionPage: false
+      onCompletionPage: false,
+      trialNum: 0
     };
   }
 
@@ -36,6 +37,11 @@ class Experiment extends React.Component {
       this.setState({
         onCompletionPage: true
       })
+    } else {
+      // increment the trial number if we aren't on the completion page
+      this.setState({
+        trialNum: this.state.trialNum + 1
+      });
     }
 
     // show a random component unless we are on the completion page
@@ -71,6 +77,7 @@ class Experiment extends React.Component {
   render() {
     return (
         <div className="Experiment">
+          <p>Trial number: {this.state.trialNum}</p>
           <this.state.activeComponent width={1900} height={920}/>
           <Button onClick={() => this.handleButtonClick()}>{this.getButtonText()}</Button>
         </div>

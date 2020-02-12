@@ -2,6 +2,8 @@ import React from 'react';
 import * as d3 from 'd3';
 
 class Graph2 extends React.Component {
+  static graphType = "Bar 2";
+
   constructor(props) {
     super(props);
     this.divRef = React.createRef();
