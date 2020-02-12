@@ -6,7 +6,7 @@ import Experiment from "../navPages/Experiment"
 function Routes() {
   return (
       <Switch>
-        <Route path="/experiments">
+        <Route path="/experiment">
           <Experiment/>
         </Route>
         <Route path="/">
