@@ -47,16 +47,18 @@ class Experiment extends React.Component {
   }
 
   render() {
+
     const {step, participantID, data} = this.state;
     const values = {step, participantID, data};
     const numGraphs = this.numGraphs;
 
+    let component;
     if(step === 0) {
-      return <Description nextStep={this.nextStep}/>;
+      component = <Description nextStep={this.nextStep}/>;
     } else if (numGraphs + 1 === step) {
-      return <Completion values={values}/>;
+      component = <Completion values={values}/>;
     } else {
-      return <this.state.active
+      component = <this.state.active
           width={this.graphWidth}
           height={this.graphHeight}
           nextStep={this.nextStep}
@@ -64,6 +66,12 @@ class Experiment extends React.Component {
           values={values}
       />;
     }
+
+
+    return <div>
+      <p>Step {step} / {numGraphs + 1}</p>
+      {component}
+    </div>
   }
 }
 
