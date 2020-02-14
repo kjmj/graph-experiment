@@ -4,6 +4,7 @@ import {Button, Form} from "react-bootstrap";
 
 class Graph1 extends React.Component {
   graphType = "Bar 1";
+  truePercent = 0;
 
   saveAndContinue = (e) => {
     e.preventDefault();
@@ -13,7 +14,7 @@ class Graph1 extends React.Component {
       'vizType': this.graphType,
       'participantID': this.props.values.participantID,
       'trialNumber': this.props.values.step,
-      'truePercent': 0, // TODO calculate true percent
+      'truePercent': this.truePercent, // TODO calculate true percent
       'reportedPercent': 0 // TODO calculate true percent
     };
     this.props.addData(json);
@@ -40,35 +41,72 @@ class Graph1 extends React.Component {
       return Math.floor(Math.random() * (max - min)) + min;
     }
 
-    //Returns an array of random points in a pre-defined area
-    function randPoints(numofpoints) {
-      const result = [];
-      for (let i = 0; i < numofpoints; i++) {
-        let temp = [getRandomInt(1400, 1700), getRandomInt(200, 400)];
-        result.push(temp);
+    const height1 = getRandomInt(50, 100);
+    const height2 = getRandomInt(50, 100);
+    const height3 = getRandomInt(50, 100);
+    const height4 = getRandomInt(50, 100);
+    const height5 = getRandomInt(50, 100);
+    const height6 = getRandomInt(50, 100);
+    const height7 = getRandomInt(50, 100);
+    const height8 = getRandomInt(50, 100);
+    const height9 = getRandomInt(50, 100);
+    const height10 = getRandomInt(50, 100);
+
+    function getHeight(num) {
+      switch (num) {
+        case 0:
+          return height1;
+        case 1:
+          return height2;
+        case 2:
+          return height3;
+        case 3:
+          return height4;
+        case 4:
+          return height5;
+        case 5:
+          return height6;
+        case 6:
+          return height7;
+        case 7:
+          return height8;
+        case 8:
+          return height9;
+        case 9:
+          return height10;
       }
-      return result;
     }
 
     var barwidth = 50;
     var barloc = 540;
 
-    const bar1 = svg.append("rect").attr("x", barloc + (0 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", getRandomInt(50, 100)).attr("fill", "white").attr("stroke", "black");
-    const bar2 = svg.append("rect").attr("x", barloc + (1 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", getRandomInt(50, 100)).attr("fill", "white").attr("stroke", "black");
-    const bar3 = svg.append("rect").attr("x", barloc + (2 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", getRandomInt(50, 100)).attr("fill", "white").attr("stroke", "black");
-    const bar4 = svg.append("rect").attr("x", barloc + (3 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", getRandomInt(50, 100)).attr("fill", "white").attr("stroke", "black");
-    const bar5 = svg.append("rect").attr("x", barloc + (4 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", getRandomInt(50, 100)).attr("fill", "white").attr("stroke", "black");
-    const bar6 = svg.append("rect").attr("x", barloc + (5 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", getRandomInt(50, 100)).attr("fill", "white").attr("stroke", "black");
-    const bar7 = svg.append("rect").attr("x", barloc + (6 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", getRandomInt(50, 100)).attr("fill", "white").attr("stroke", "black");
-    const bar8 = svg.append("rect").attr("x", barloc + (7 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", getRandomInt(50, 100)).attr("fill", "white").attr("stroke", "black");
-    const bar9 = svg.append("rect").attr("x", barloc + (8 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", getRandomInt(50, 100)).attr("fill", "white").attr("stroke", "black");
-    const bar10 = svg.append("rect").attr("x", barloc + (9 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", getRandomInt(50, 100)).attr("fill", "white").attr("stroke", "black");
+    const bar1 = svg.append("rect").attr("x", barloc + (0 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height1).attr("fill", "white").attr("stroke", "black");
+    const bar2 = svg.append("rect").attr("x", barloc + (1 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height2).attr("fill", "white").attr("stroke", "black");
+    const bar3 = svg.append("rect").attr("x", barloc + (2 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height3).attr("fill", "white").attr("stroke", "black");
+    const bar4 = svg.append("rect").attr("x", barloc + (3 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height4).attr("fill", "white").attr("stroke", "black");
+    const bar5 = svg.append("rect").attr("x", barloc + (4 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height5).attr("fill", "white").attr("stroke", "black");
+    const bar6 = svg.append("rect").attr("x", barloc + (5 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height6).attr("fill", "white").attr("stroke", "black");
+    const bar7 = svg.append("rect").attr("x", barloc + (6 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height7).attr("fill", "white").attr("stroke", "black");
+    const bar8 = svg.append("rect").attr("x", barloc + (7 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height8).attr("fill", "white").attr("stroke", "black");
+    const bar9 = svg.append("rect").attr("x", barloc + (8 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height9).attr("fill", "white").attr("stroke", "black");
+    const bar10 = svg.append("rect").attr("x", barloc + (9 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height",height10).attr("fill", "white").attr("stroke", "black");
 
     var dotloc = getRandomInt(0, 7);
 
     const dot1 = svg.append("circle").attr("cx", barloc + (dotloc * barwidth) + (barwidth / 2)).attr("cy", 400).attr("r", 4).attr("fill", "black").attr("stroke", "black");
     const dot2 = svg.append("circle").attr("cx", barloc + ((dotloc + 2) * barwidth) + (barwidth / 2)).attr("cy", 400).attr("r", 4).attr("fill", "black").attr("stroke", "black");
+
+    const size1 = getHeight(dotloc);
+    const size2 = getHeight(dotloc + 2);
+
+    if (size1 < size2) {
+      this.truePercent = Math.round((size1/size2) * 100);
+    }
+    else {
+      this.truePercent = Math.round((size2/size1) * 100);
+    }
   }
+
 
   render() {
     return (

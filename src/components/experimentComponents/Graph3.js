@@ -4,6 +4,7 @@ import {Button, Form} from "react-bootstrap";
 
 class Graph3 extends React.Component {
   graphType = "Stacked Bar";
+  truePercent = 0;
 
   saveAndContinue = (e) => {
     e.preventDefault();
@@ -13,7 +14,7 @@ class Graph3 extends React.Component {
       'vizType': this.graphType,
       'participantID': this.props.values.participantID,
       'trialNumber': this.props.values.step,
-      'truePercent': 0, // TODO calculate true percent
+      'truePercent': this.truePercent, // TODO calculate true percent
       'reportedPercent': 0 // TODO calculate true percent
     };
     this.props.addData(json);
@@ -89,12 +90,11 @@ class Graph3 extends React.Component {
           return height1to5 + height6 + height7 + height8;
         case 9:
           return height1to5 + height6 + height7 + height8 + height9;
-        case 10:
       }
     }
 
 
-    var barloc = 300;
+    var barloc = 200;
 
 
     const bar1 = svg.append("rect").attr("x", 770).attr("y", barloc + getHeight(0)).attr("width", 50).attr("height", height1).attr("fill", "white").attr("stroke", "black");
@@ -112,6 +112,16 @@ class Graph3 extends React.Component {
 
     const dot1 = svg.append("circle").attr("cx", 795).attr("cy", 15 + barloc + getHeight(dotloc)).attr("r", 4).attr("fill", "black").attr("stroke", "black");
     const dot2 = svg.append("circle").attr("cx", 795).attr("cy", 15 + barloc + getHeight(dotloc + 2)).attr("r", 4).attr("fill", "black").attr("stroke", "black");
+
+    const size1 = getHeight(dotloc);
+    const size2 = getHeight(dotloc + 2);
+
+    if (size1 < size2) {
+      this.truePercent = Math.round((size1/size2) * 100);
+    }
+    else {
+      this.truePercent = Math.round((size2/size1) * 100);
+    }
   }
 
   render() {

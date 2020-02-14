@@ -15,7 +15,7 @@ class Experiment extends React.Component {
     active: ''
   };
   graphWidth = 1900;
-  graphHeight = 920;
+  graphHeight = 720;
   numGraphs = this.state.graphs.length;
 
 
