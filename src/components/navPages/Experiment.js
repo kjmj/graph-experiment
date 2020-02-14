@@ -11,16 +11,19 @@ class Experiment extends React.Component {
     step: 0,
     participantID: '_' + Math.random().toString(36).substr(2, 9),
     data: [],
-    graphKeys: [1, 2, 3, 4],
+    graphs: this.shuffle([Graph1, Graph2, Graph3, Graph4]), // TODO random
+    active: ''
   };
   graphWidth = 1900;
   graphHeight = 920;
+  numGraphs = this.state.graphs.length;
 
 
   nextStep = () => {
     const {step} = this.state;
     this.setState({
-      step: step + 1
+      step: step + 1,
+      active: this.state.graphs.pop()
     })
   };
 
@@ -46,51 +49,20 @@ class Experiment extends React.Component {
   render() {
     const {step, participantID, data} = this.state;
     const values = {step, participantID, data};
+    const numGraphs = this.numGraphs;
 
-    switch (step) {
-      case 0:
-        return <Description nextStep={this.nextStep}/>;
-      case 5:
-        return <Completion values={values}/>;
-    }
-
-    // choose a random graph to display next
-    // for each graph added to this switch statement, make sure to add a corresponding number to this.state.graphKeys
-    const graphKeys = this.shuffle(this.state.graphKeys);
-    const rand = graphKeys.pop();
-    switch (rand) {
-      case 1:
-        return <Graph1
-            width={this.graphWidth}
-            height={this.graphHeight}
-            nextStep={this.nextStep}
-            addData={this.addData}
-            values={values}
-        />;
-      case 2:
-        return <Graph2
-            width={this.graphWidth}
-            height={this.graphHeight}
-            nextStep={this.nextStep}
-            addData={this.addData}
-            values={values}
-        />;
-      case 3:
-        return <Graph3
-            width={this.graphWidth}
-            height={this.graphHeight}
-            nextStep={this.nextStep}
-            addData={this.addData}
-            values={values}
-        />;
-      case 4:
-        return <Graph4
-            width={this.graphWidth}
-            height={this.graphHeight}
-            nextStep={this.nextStep}
-            addData={this.addData}
-            values={values}
-        />;
+    if(step === 0) {
+      return <Description nextStep={this.nextStep}/>;
+    } else if (numGraphs + 1 === step) {
+      return <Completion values={values}/>;
+    } else {
+      return <this.state.active
+          width={this.graphWidth}
+          height={this.graphHeight}
+          nextStep={this.nextStep}
+          addData={this.addData}
+          values={values}
+      />;
     }
   }
 }
