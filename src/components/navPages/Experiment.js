@@ -1,7 +1,6 @@
 import React from 'react';
 import Description from "../experimentComponents/Description"
 import Graph1 from "../experimentComponents/Graph1"
-import Graph2 from "../experimentComponents/Graph2"
 import Graph3 from "../experimentComponents/Graph3"
 import Graph4 from "../experimentComponents/Graph4"
 import Completion from "../experimentComponents/Completion"
@@ -11,7 +10,7 @@ class Experiment extends React.Component {
     step: 0,
     participantID: '_' + Math.random().toString(36).substr(2, 9),
     data: [],
-    graphs: this.shuffle([Graph1, Graph2, Graph3, Graph4]),
+    graphs: this.shuffle([Graph1, Graph1, Graph3, Graph3, Graph4, Graph4]),
     active: ''
   };
   graphWidth = 1900;

@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 import {Button, Form} from "react-bootstrap";
 
 class Graph1 extends React.Component {
-  graphType = "Bar 1";
+  graphType = "Bar";
   truePercent = 0;
 
   saveAndContinue = (e) => {
@@ -15,7 +15,7 @@ class Graph1 extends React.Component {
       'participantID': this.props.values.participantID,
       'trialNumber': this.props.values.step,
       'truePercent': this.truePercent, // TODO calculate true percent
-      'reportedPercent': 0 // TODO calculate true percent
+      'reportedPercent': parseInt(this.textField.value) // TODO calculate true percent
     };
     this.props.addData(json);
     this.props.nextStep();
@@ -80,21 +80,21 @@ class Graph1 extends React.Component {
     var barwidth = 50;
     var barloc = 540;
 
-    const bar1 = svg.append("rect").attr("x", barloc + (0 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height1).attr("fill", "white").attr("stroke", "black");
-    const bar2 = svg.append("rect").attr("x", barloc + (1 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height2).attr("fill", "white").attr("stroke", "black");
-    const bar3 = svg.append("rect").attr("x", barloc + (2 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height3).attr("fill", "white").attr("stroke", "black");
-    const bar4 = svg.append("rect").attr("x", barloc + (3 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height4).attr("fill", "white").attr("stroke", "black");
-    const bar5 = svg.append("rect").attr("x", barloc + (4 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height5).attr("fill", "white").attr("stroke", "black");
-    const bar6 = svg.append("rect").attr("x", barloc + (5 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height6).attr("fill", "white").attr("stroke", "black");
-    const bar7 = svg.append("rect").attr("x", barloc + (6 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height7).attr("fill", "white").attr("stroke", "black");
-    const bar8 = svg.append("rect").attr("x", barloc + (7 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height8).attr("fill", "white").attr("stroke", "black");
-    const bar9 = svg.append("rect").attr("x", barloc + (8 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height9).attr("fill", "white").attr("stroke", "black");
-    const bar10 = svg.append("rect").attr("x", barloc + (9 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height",height10).attr("fill", "white").attr("stroke", "black");
+    svg.append("rect").attr("x", barloc + (0 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height1).attr("fill", "white").attr("stroke", "black");
+    svg.append("rect").attr("x", barloc + (1 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height2).attr("fill", "white").attr("stroke", "black");
+    svg.append("rect").attr("x", barloc + (2 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height3).attr("fill", "white").attr("stroke", "black");
+    svg.append("rect").attr("x", barloc + (3 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height4).attr("fill", "white").attr("stroke", "black");
+    svg.append("rect").attr("x", barloc + (4 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height5).attr("fill", "white").attr("stroke", "black");
+    svg.append("rect").attr("x", barloc + (5 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height6).attr("fill", "white").attr("stroke", "black");
+    svg.append("rect").attr("x", barloc + (6 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height7).attr("fill", "white").attr("stroke", "black");
+    svg.append("rect").attr("x", barloc + (7 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height8).attr("fill", "white").attr("stroke", "black");
+    svg.append("rect").attr("x", barloc + (8 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height", height9).attr("fill", "white").attr("stroke", "black");
+    svg.append("rect").attr("x", barloc + (9 * barwidth)).attr("y", 375).attr("width", barwidth).attr("height",height10).attr("fill", "white").attr("stroke", "black");
 
     var dotloc = getRandomInt(0, 7);
 
-    const dot1 = svg.append("circle").attr("cx", barloc + (dotloc * barwidth) + (barwidth / 2)).attr("cy", 400).attr("r", 4).attr("fill", "black").attr("stroke", "black");
-    const dot2 = svg.append("circle").attr("cx", barloc + ((dotloc + 2) * barwidth) + (barwidth / 2)).attr("cy", 400).attr("r", 4).attr("fill", "black").attr("stroke", "black");
+    svg.append("circle").attr("cx", barloc + (dotloc * barwidth) + (barwidth / 2)).attr("cy", 400).attr("r", 4).attr("fill", "black").attr("stroke", "black");
+    svg.append("circle").attr("cx", barloc + ((dotloc + 2) * barwidth) + (barwidth / 2)).attr("cy", 400).attr("r", 4).attr("fill", "black").attr("stroke", "black");
 
     const size1 = getHeight(dotloc);
     const size2 = getHeight(dotloc + 2);
