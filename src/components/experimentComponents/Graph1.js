@@ -1,8 +1,14 @@
 import React from 'react';
 import * as d3 from 'd3';
+import {Button} from "react-bootstrap";
 
 class Graph1 extends React.Component {
   static graphType = "Bar 1";
+
+  saveAndContinue = (e) => {
+    e.preventDefault();
+    this.props.nextStep();
+  };
 
   constructor(props) {
     super(props);
@@ -54,8 +60,11 @@ class Graph1 extends React.Component {
 
   render() {
     return (
-        <div ref={this.divRef}>
-          <p>Here is the other graph, transferred over. You might have to scroll to find the "next" button</p>
+        <div>
+          <div ref={this.divRef}>
+            <p>Here is the other graph, transferred over. You might have to scroll to find the "next" button</p>
+          </div>
+          <Button onClick={this.saveAndContinue}>Next</Button>
         </div>
     )
   }

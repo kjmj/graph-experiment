@@ -1,8 +1,14 @@
 import React from 'react';
 import * as d3 from 'd3';
+import {Button} from "react-bootstrap";
 
 class Graph4 extends React.Component {
   static graphType = "Pie";
+
+  saveAndContinue = (e) => {
+    e.preventDefault();
+    this.props.nextStep();
+  };
 
   constructor(props) {
     super(props);
@@ -55,8 +61,11 @@ class Graph4 extends React.Component {
 
   render() {
     return (
-        <div ref={this.divRef}>
-          <p>Pie Chart</p>
+        <div>
+          <div ref={this.divRef}>
+            <p>Pie Chart</p>
+          </div>
+          <Button onClick={this.saveAndContinue}>Next</Button>
         </div>
     )
   }

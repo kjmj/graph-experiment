@@ -1,8 +1,14 @@
 import React from 'react';
 import * as d3 from 'd3';
+import {Button} from "react-bootstrap";
 
 class Graph2 extends React.Component {
   static graphType = "Bar 2";
+
+  saveAndContinue = (e) => {
+    e.preventDefault();
+    this.props.nextStep();
+  };
 
   constructor(props) {
     super(props);
@@ -33,8 +39,11 @@ class Graph2 extends React.Component {
 
   render() {
     return (
-        <div ref={this.divRef}>
-          <p>This is a quick graph I created</p>
+        <div>
+          <div ref={this.divRef}>
+            <p>This is a quick graph I created</p>
+          </div>
+          <Button onClick={this.saveAndContinue}>Next</Button>
         </div>
     )
   }

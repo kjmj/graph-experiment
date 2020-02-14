@@ -1,8 +1,14 @@
 import React from 'react';
 import * as d3 from 'd3';
+import {Button} from "react-bootstrap";
 
 class Graph3 extends React.Component {
   static graphType = "Stacked Bar";
+
+  saveAndContinue = (e) => {
+    e.preventDefault();
+    this.props.nextStep();
+  };
 
   constructor(props) {
     super(props);
@@ -100,8 +106,11 @@ class Graph3 extends React.Component {
 
   render() {
     return (
-        <div ref={this.divRef}>
-          <p>Stacked Bar Graph</p>
+        <div>
+          <div ref={this.divRef}>
+            <p>Stacked Bar Graph</p>
+          </div>
+          <Button onClick={this.saveAndContinue}>Next</Button>
         </div>
     )
   }

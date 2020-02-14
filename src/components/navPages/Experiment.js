@@ -1,6 +1,4 @@
 import React from 'react';
-import {Button,} from 'react-bootstrap';
-import _ from 'underscore';
 import Description from "../experimentComponents/Description"
 import Graph1 from "../experimentComponents/Graph1"
 import Graph2 from "../experimentComponents/Graph2"
@@ -9,82 +7,101 @@ import Graph4 from "../experimentComponents/Graph4"
 import Completion from "../experimentComponents/Completion"
 
 class Experiment extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    step: 0,
+    participantID: 0, // TODO randomly generate this
+    vizType: '',
+    reportedPercent: 0,
+    truePercent: 0
+  };
+  graphs = [];
+  graphWidth = 1900;
+  graphHeight = 920;
 
-    // List of components we want to display to user in random order
-    const components = [Graph1, Graph2, Graph3, Graph4];
-    this.state = {
-      components: components,
-      activeComponent: Description,
-      onFirstPage: true,
-      onCompletionPage: false,
-      trialNum: 0,
-      numGraphs: components.length + 1
-    };
-  }
 
-  // change the active component to a random component
-  // also determines if they have completed the experiment or not
-  handleButtonClick() {
-    let components = this.state.components;
-    const random = _.sample(components);
-
-    // if we have iterated thru all components, alert them that they're done
-    if (this.state.onCompletionPage) {
-      alert("We should probably analyze data here")
-    }
-
-    // increment the trial number if we aren't on the completion page
+  nextStep = () => {
+    const { step } = this.state;
     this.setState({
-      trialNum: components.length === 0 ? this.state.numGraphs : this.state.trialNum + 1
-    });
-
-    // if we have seen all components, we are on the completion page
-    if (components.length === 0) {
-      this.setState({
-        onCompletionPage: true
-      })
-    }
-
-    // show a random component unless we are on the completion page
-    this.setState({
-      activeComponent: components.length === 0 ? Completion : random,
-      onFirstPage: false
-    });
-
-    // remove it from the array since we have seen it
-    components = _.reject(components, function (d) {
-      return d === random;
-    });
-    this.setState({
-      components: components
+      step : step + 1
     })
-  }
+  };
 
-  // Change the text of the button based on which component is active
-  getButtonText() {
-    let text;
+  handleChange = input => event => {
+    this.setState({ [input] : event.target.value })
+  };
 
-    if (this.state.onCompletionPage) {
-      text = "Submit"
-    } else if (this.state.onFirstPage) {
-      text = "Agree"
-    } else {
-      text = "Next"
+  /**
+   * Shuffles array in place. ES6 version
+   * @param {Array} a items An array containing the items.
+   */
+  shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
     }
-
-    return text
+    return a;
   }
 
+  componentDidMount() {
+    const { vizType, reportedPercent, truePercent } = this.state;
+    const values = { vizType, reportedPercent, truePercent };
+
+    let graphs = [
+      <Graph1
+          width={this.graphWidth}
+          height={this.graphHeight}
+          nextStep={this.nextStep}
+          handleChange = {this.handleChange}
+          values={values}
+      />,
+      <Graph2
+          width={this.graphWidth}
+          height={this.graphHeight}
+          nextStep={this.nextStep}
+          handleChange = {this.handleChange}
+          values={values}
+      />,
+      <Graph3
+          width={this.graphWidth}
+          height={this.graphHeight}
+          nextStep={this.nextStep}
+          handleChange = {this.handleChange}
+          values={values}
+      />,
+      <Graph4
+          width={this.graphWidth}
+          height={this.graphHeight}
+          nextStep={this.nextStep}
+          handleChange = {this.handleChange}
+          values={values}
+      />
+    ];
+    this.shuffle(graphs);
+    this.graphs = graphs;
+  }
+  
   render() {
-    return (
-        <div className="Experiment">
-          <p>Trial number: {this.state.trialNum} / {this.state.numGraphs}</p>
-          <this.state.activeComponent width={1900} height={920}/>
-          <Button onClick={() => this.handleButtonClick()}>{this.getButtonText()}</Button>
-        </div>
-    );
+    const {step} = this.state;
+    const { vizType, reportedPercent, truePercent } = this.state;
+    const values = { vizType, reportedPercent, truePercent };
+
+    const description = <Description nextStep={this.nextStep}/>;
+    const confirmation = <Completion values={values}/>;
+
+    switch(step) {
+      case 0:
+        return description;
+      case 1:
+        return this.graphs[0];
+      case 2:
+        return this.graphs[1];
+      case 3:
+        return this.graphs[2];
+      case 4:
+        return this.graphs[3];
+      case 5:
+        return confirmation;
+    }
   }
 }
 
