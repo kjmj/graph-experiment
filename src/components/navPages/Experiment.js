@@ -3,6 +3,7 @@ import Description from "../experimentComponents/Description"
 import Graph1 from "../experimentComponents/Graph1"
 import Graph3 from "../experimentComponents/Graph3"
 import Graph4 from "../experimentComponents/Graph4"
+import Refresh from "../experimentComponents/Refresh"
 import Completion from "../experimentComponents/Completion"
 
 class Experiment extends React.Component {
@@ -18,8 +19,14 @@ class Experiment extends React.Component {
   numGraphs = this.state.graphs.length;
 
 
-  nextStep = () => {
+  nextStep = async () => {
     const {step} = this.state;
+
+    // react was being weird and not re-rendering certain widgets if they were repeated
+    // my solution is to force react to re-render an empty div, then render the new active graph
+    await this.setState({
+      active: Refresh
+    });
     this.setState({
       step: step + 1,
       active: this.state.graphs.pop()
