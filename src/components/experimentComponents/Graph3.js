@@ -1,12 +1,22 @@
 import React from 'react';
 import * as d3 from 'd3';
-import {Button} from "react-bootstrap";
+import {Button, Form} from "react-bootstrap";
 
 class Graph3 extends React.Component {
-  static graphType = "Stacked Bar";
+  graphType = "Stacked Bar";
 
   saveAndContinue = (e) => {
     e.preventDefault();
+
+    const textFieldVal = this.textField.value; // what the user typed into the text field
+    const json = {
+      'vizType': this.graphType,
+      'participantID': this.props.values.participantID,
+      'trialNumber': this.props.values.step,
+      'truePercent': 0, // TODO calculate true percent
+      'reportedPercent': 0 // TODO calculate true percent
+    };
+    this.props.addData(json);
     this.props.nextStep();
   };
 
@@ -110,6 +120,7 @@ class Graph3 extends React.Component {
           <div ref={this.divRef}>
             <p>Stacked Bar Graph</p>
           </div>
+          <Form.Control type="text" placeholder="Answer" ref={node => this.textField = node}/>
           <Button onClick={this.saveAndContinue}>Next</Button>
         </div>
     )

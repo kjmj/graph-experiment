@@ -1,12 +1,22 @@
 import React from 'react';
 import * as d3 from 'd3';
-import {Button} from "react-bootstrap";
+import {Button, Form} from "react-bootstrap";
 
 class Graph2 extends React.Component {
-  static graphType = "Bar 2";
+  graphType = "Bar 2";
 
   saveAndContinue = (e) => {
     e.preventDefault();
+
+    const textFieldVal = this.textField.value; // what the user typed into the text field
+    const json = {
+      'vizType': this.graphType,
+      'participantID': this.props.values.participantID,
+      'trialNumber': this.props.values.step,
+      'truePercent': 0, // TODO calculate true percent
+      'reportedPercent': 0 // TODO calculate true percent
+    };
+    this.props.addData(json);
     this.props.nextStep();
   };
 
@@ -43,6 +53,7 @@ class Graph2 extends React.Component {
           <div ref={this.divRef}>
             <p>This is a quick graph I created</p>
           </div>
+          <Form.Control type="text" placeholder="Answer" ref={node => this.textField = node}/>
           <Button onClick={this.saveAndContinue}>Next</Button>
         </div>
     )
