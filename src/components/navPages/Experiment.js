@@ -11,7 +11,7 @@ class Experiment extends React.Component {
     step: 0,
     participantID: '_' + Math.random().toString(36).substr(2, 9),
     data: [],
-    graphs: this.shuffle([Graph1, Graph2, Graph3, Graph4]), // TODO random
+    graphs: this.shuffle([Graph1, Graph2, Graph3, Graph4]),
     active: ''
   };
   graphWidth = 1900;
