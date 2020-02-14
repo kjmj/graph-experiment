@@ -9,7 +9,7 @@ import Completion from "../experimentComponents/Completion"
 class Experiment extends React.Component {
   state = {
     step: 0,
-    participantID: 0, // TODO randomly generate this
+    participantID: '_' + Math.random().toString(36).substr(2, 9),
     data: [],
     graphKeys: [1, 2, 3, 4],
   };
