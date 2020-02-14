@@ -30,6 +30,14 @@ class Graph4 extends React.Component {
   }
 
   drawBarChart() {
+
+    function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+
 // set the dimensions and margins of the graph
     var width = this.props.width/2
     var height = this.props.height/2
@@ -42,12 +50,7 @@ class Graph4 extends React.Component {
     const svg = d3.select(this.divRef.current).append("svg").attr("width", this.props.width).attr("height", this.props.height).append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
 // Create dummy data
-    var data = {a:9, b:20, c:30, d:8, e:12, f:3, g:11, h:22, i:23, j:35}
-
-// set the color scale
-    var color = d3.scaleOrdinal()
-        .domain(data)
-        .range(["#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"])
+    var data = {a:getRandomInt(10, 40), b:getRandomInt(10, 40), c:getRandomInt(10, 40), d:getRandomInt(10, 40), e:getRandomInt(10, 40), f:getRandomInt(10, 40), g:getRandomInt(10, 40), h:getRandomInt(10, 40), i:getRandomInt(10, 40), j:getRandomInt(10, 40)}
 
 // Compute the position of each group on the pie:
     var pie = d3.pie()
@@ -64,9 +67,10 @@ class Graph4 extends React.Component {
             .innerRadius(0)
             .outerRadius(radius)
         )
-        .attr('fill', function(d){ return(color(d.data.key)) })
+        .attr('fill', 'white')
         .attr("stroke", "black")
         .style("stroke-width", "2px")
+        //http://bl.ocks.org/MohamedAlaa/246b7d45e20be8680394
   }
 
   render() {
