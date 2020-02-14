@@ -13,7 +13,7 @@ class Experiment extends React.Component {
     graphs: this.shuffle([Graph1, Graph1, Graph3, Graph3, Graph4, Graph4]),
     active: ''
   };
-  graphWidth = 1900;
+  graphWidth = 1280;
   graphHeight = 720;
   numGraphs = this.state.graphs.length;
 
