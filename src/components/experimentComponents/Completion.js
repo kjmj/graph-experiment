@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button} from "react-bootstrap";
+import { CSVLink } from "react-csv";
 
 class Completion extends React.Component {
   render() {
@@ -9,7 +9,9 @@ class Completion extends React.Component {
     return (
         <div className="Completion">
           <p>Thanks for completing our experiment!</p>
-          <Button onClick={() => alert("check the console.log for the data array")}>Submit</Button>
+          <CSVLink data={data} filename='experiment.csv'>
+            Download your data
+          </CSVLink>
         </div>
     );
   }
