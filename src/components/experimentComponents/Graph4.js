@@ -4,17 +4,17 @@ import {Button, Form} from "react-bootstrap";
 
 class Graph4 extends React.Component {
   graphType = "Pie";
+  truePercent = 0;
 
   saveAndContinue = (e) => {
     e.preventDefault();
 
-    const textFieldVal = this.textField.value; // what the user typed into the text field
     const json = {
       'vizType': this.graphType,
       'participantID': this.props.values.participantID,
       'trialNumber': this.props.values.step,
-      'truePercent': 0, // TODO calculate true percent
-      'reportedPercent': 0 // TODO calculate true percent
+      'truePercent': this.truePercent,
+      'reportedPercent': parseInt(this.textField.value)
     };
     this.props.addData(json);
     this.props.nextStep();
@@ -31,6 +31,8 @@ class Graph4 extends React.Component {
 
   drawBarChart() {
 
+
+    //Returns a random int between min and max
     function getRandomInt(min, max) {
       min = Math.ceil(min);
       max = Math.floor(max);
@@ -38,39 +40,87 @@ class Graph4 extends React.Component {
     }
 
 
-// set the dimensions and margins of the graph
-    var width = this.props.width/2
-    var height = this.props.height/2
-    var margin = 40
+    function getRandomFloat(min, max) {
+      return parseFloat((Math.random() * (max - min) + min).toFixed(1));
+    }
 
-// The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
-    var radius = Math.min(width, height) / 2 - margin
+
+// set the dimensions and margins of the graph
+    const width = this.props.width/2;
+    const height = this.props.height/2;
 
 // append the svg object to the div called 'my_dataviz'
     const svg = d3.select(this.divRef.current).append("svg").attr("width", this.props.width).attr("height", this.props.height).append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-// Create dummy data
-    var data = {a:getRandomInt(10, 40), b:getRandomInt(10, 40), c:getRandomInt(10, 40), d:getRandomInt(10, 40), e:getRandomInt(10, 40), f:getRandomInt(10, 40), g:getRandomInt(10, 40), h:getRandomInt(10, 40), i:getRandomInt(10, 40), j:getRandomInt(10, 40)}
+// Create an arc generator with configuration
+    var arcGenerator = d3.arc()
+        .innerRadius(0)
+        .outerRadius(100);
 
-// Compute the position of each group on the pie:
-    var pie = d3.pie()
-        .value(function(d) {return d.value; })
-    var data_ready = pie(d3.entries(data))
+    const radius1 = getRandomFloat(0.2, 0.6);
+    const radius2 = getRandomFloat(radius1 + 0.2, radius1 + 1);
+    const radius3 = getRandomFloat(radius2 + 0.2, radius2 + 1);
+    const radius4 = getRandomFloat(radius3 + 0.2, radius3 + 1);
+    const radius5 = getRandomFloat(radius4 + 0.2, radius4 + 1);
+    const radius6 = getRandomFloat(radius5 + 0.2, radius5 + 1);
+    const radius7 = getRandomFloat(radius6 + 0.2, radius6 + 1);
+    const radius8 = getRandomFloat(radius7 + 0.2, radius7 + 1);
+    const radius9 = getRandomFloat(radius8 + 0.2, 6);
 
-// Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
-    svg
-        .selectAll('whatever')
-        .data(data_ready)
+    var arcData = [
+      {label: '1', startAngle: 0, endAngle: radius1},
+      {label: '2', startAngle: radius1, endAngle: radius2},
+      {label: '3', startAngle: radius2, endAngle: radius3},
+      {label: '4', startAngle: radius3, endAngle: radius4},
+      {label: '5', startAngle: radius4, endAngle: radius5},
+      {label: '6', startAngle: radius5, endAngle: radius6},
+      {label: '7', startAngle: radius6, endAngle: radius7},
+      {label: '8', startAngle: radius7, endAngle: radius8},
+      {label: '9', startAngle: radius8, endAngle: radius9},
+      {label: '10', startAngle: radius9, endAngle: 2* Math.PI}
+    ];
+
+    const dotloc = getRandomInt(1, 8);
+    let count = 0;
+    let dot1percent = 0;
+    let dot2percent = 0;
+
+// Create a path element and set its d attribute
+    d3.select('g')
+        .selectAll('path')
+        .data(arcData)
         .enter()
         .append('path')
-        .attr('d', d3.arc()
-            .innerRadius(0)
-            .outerRadius(radius)
-        )
-        .attr('fill', 'white')
-        .attr("stroke", "black")
-        .style("stroke-width", "2px")
-        //http://bl.ocks.org/MohamedAlaa/246b7d45e20be8680394
+        .attr('d', arcGenerator)
+        .attr("fill", "white")
+        .attr("stroke", "black");
+
+// Add labels, using .centroid() to position
+    d3.select('g')
+        .selectAll('text')
+        .data(arcData)
+        .enter()
+        .append('text')
+        .each(function(d) {
+          var centroid = arcGenerator.centroid(d);
+          d3.select(this)
+              .attr('x', centroid[0])
+              .attr('y', centroid[1])
+              .attr('dy', '0.33em')
+              if(parseInt(d.label) === dotloc || parseInt(d.label) === dotloc + 2) {
+                svg.append("circle").attr("cx", centroid[0]).attr("cy", centroid[1]).attr("r", 4).attr("fill", "black").attr("stroke", "black");
+                if (count === 1) {
+                  dot2percent = d.endAngle - d.startAngle;
+                }
+                else {
+                  dot1percent = d.endAngle - d.startAngle;
+                }
+
+                count++;
+              }
+        });
+
+    this.truePercent = Math.round((dot1percent/dot2percent) * 100);
   }
 
   render() {

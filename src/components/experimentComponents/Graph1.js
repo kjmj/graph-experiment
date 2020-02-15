@@ -9,13 +9,12 @@ class Graph1 extends React.Component {
   saveAndContinue = (e) => {
     e.preventDefault();
 
-    const textFieldVal = this.textField.value; // what the user typed into the text field
     const json = {
       'vizType': this.graphType,
       'participantID': this.props.values.participantID,
       'trialNumber': this.props.values.step,
-      'truePercent': this.truePercent, // TODO calculate true percent
-      'reportedPercent': parseInt(this.textField.value) // TODO calculate true percent
+      'truePercent': this.truePercent,
+      'reportedPercent': parseInt(this.textField.value)
     };
     this.props.addData(json);
     this.props.nextStep();
@@ -74,6 +73,8 @@ class Graph1 extends React.Component {
           return height9;
         case 9:
           return height10;
+        default:
+          return;
       }
     }
 
