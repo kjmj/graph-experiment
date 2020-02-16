@@ -120,7 +120,14 @@ class Graph4 extends React.Component {
               }
         });
 
-    this.truePercent = Math.round((dot1percent/dot2percent) * 100);
+    if (dot1percent < dot2percent) {
+      this.truePercent = Math.round((dot1percent/dot2percent) * 100);
+    }
+    else {
+      this.truePercent = Math.round((dot2percent/dot1percent) * 100);
+    }
+
+
   }
 
   render() {
