@@ -14,6 +14,7 @@ class Experiment extends React.Component {
     graphs: this.shuffle([Graph1, Graph1, Graph3, Graph3, Graph4, Graph4]),
     active: ''
   };
+  numGraphs = this.state.graphs.length;
 
   // go to the next step, and change the active component
   nextStep = async () => {
@@ -56,7 +57,7 @@ class Experiment extends React.Component {
   render() {
     const {step, participantID, data} = this.state;
     const values = {step, participantID, data};
-    const numGraphs = this.state.graphs.length;
+    const numGraphs = this.numGraphs;
 
     // depending on which step they are in the experiment, show a component
     let component;
