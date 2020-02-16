@@ -26,7 +26,7 @@ class Experiment extends React.Component {
       active: Refresh
     });
 
-    // no pick a new graph to show
+    // now pick a new graph to show
     this.setState({
       step: step + 1,
       active: this.state.graphs.pop()
