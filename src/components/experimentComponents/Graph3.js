@@ -76,6 +76,8 @@ class Graph3 extends React.Component {
           return height1to5 + height6 + height7 + height8;
         case 9:
           return height1to5 + height6 + height7 + height8 + height9;
+        case 10:
+          return height1to5 + height6 + height7 + height8 + height9 + height10;
         default:
           return;
       }
@@ -101,8 +103,8 @@ class Graph3 extends React.Component {
     svg.append("circle").attr("cx", 795).attr("cy", 15 + barloc + getHeight(dotloc)).attr("r", 4).attr("fill", "black").attr("stroke", "black");
     svg.append("circle").attr("cx", 795).attr("cy", 15 + barloc + getHeight(dotloc + 2)).attr("r", 4).attr("fill", "black").attr("stroke", "black");
 
-    const size1 = getHeight(dotloc);
-    const size2 = getHeight(dotloc + 2);
+    const size1 = getHeight(dotloc + 1) - getHeight(dotloc);
+    const size2 = getHeight(dotloc + 3) - getHeight(dotloc + 2);
 
     if (size1 < size2) {
       this.truePercent = Math.round((size1/size2) * 100);
