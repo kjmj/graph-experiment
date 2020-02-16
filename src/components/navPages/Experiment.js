@@ -14,11 +14,8 @@ class Experiment extends React.Component {
     graphs: this.shuffle([Graph1, Graph1, Graph3, Graph3, Graph4, Graph4]),
     active: ''
   };
-  graphWidth = 1280;
-  graphHeight = 720;
-  numGraphs = this.state.graphs.length;
 
-
+  // go to the next step, and change the active component
   nextStep = async () => {
     const {step} = this.state;
 
@@ -27,12 +24,15 @@ class Experiment extends React.Component {
     await this.setState({
       active: Refresh
     });
+
+    // no pick a new graph to show
     this.setState({
       step: step + 1,
       active: this.state.graphs.pop()
     })
   };
 
+  // add data to the data object
   addData = (json) => {
     this.setState({
           data: this.state.data.concat(json)
@@ -52,12 +52,13 @@ class Experiment extends React.Component {
     return a;
   }
 
+  // determine which component to show
   render() {
-
     const {step, participantID, data} = this.state;
     const values = {step, participantID, data};
-    const numGraphs = this.numGraphs;
+    const numGraphs = this.state.graphs.length;
 
+    // depending on which step they are in the experiment, show a component
     let component;
     if(step === 0) {
       component = <Description nextStep={this.nextStep}/>;
@@ -65,8 +66,8 @@ class Experiment extends React.Component {
       component = <Completion values={values}/>;
     } else {
       component = <this.state.active
-          width={this.graphWidth}
-          height={this.graphHeight}
+          width={1280}
+          height={720}
           nextStep={this.nextStep}
           addData={this.addData}
           values={values}
