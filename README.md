@@ -7,14 +7,12 @@ We designed a simple experiment to determine if bar, stacked bar, or pie charts 
 
 Some technical things - there was always one bar/slice in-between the two marked bars/slices, and we chose to exclude any sort of axis's from the charts. The bar chart was rendered upside down, and the stacked bar chart had only one bar. 
 
-
-
-
 ## Results
 
-Here is the confidence interval for the three charts. We will talk in more detail about our findings below.
-
+### Confidence Interval
 ![Confidence Intervals](Experiment-R/Confidence%20Intervals.png)
+
+Here is the confidence interval for the three charts. As you can see, the bar chart performed best, followed by pie and then stacked bar. We will talk in more detail about our findings below.
 
 ### Bar
 ![Bar Chart](assets/bar.png)
@@ -22,8 +20,7 @@ Here is the confidence interval for the three charts. We will talk in more detai
 - Max: 2.06
 - Average Error: 1.571
 
-We thought that bar charts would perform the best, and in our experiment, it did. The bar chart had the lowest error, which is likely due to the fact that it is easiest for people to line up the bar heights.
-
+We thought that bar charts would perform the best, and in our experiment, it did. The bar chart had the lowest error, which is likely due to the fact that it is easiest for people to line up the bar heights. We think that bar charts are generally a solid way to represent data, as it is easy for people to compare the heights of bars.
 
 ### Pie
 ![Pie Chart](assets/pie.png)
@@ -31,7 +28,7 @@ We thought that bar charts would perform the best, and in our experiment, it did
 - Max: 2.89
 - Average Error: 2.339
 
-In second place is the pie chart. It had a higher average error than the bar chart at 2.339. Pie charts can be decieving, and while they may be good for representing a few categories, they don't always give the most accurate representation of your data.
+In second place is the pie chart. It had a higher average error than the bar chart at 2.339. Pie charts can be deceiving, and while they may be good for representing a few categories, they don't always give the most accurate representation of your data. Pie charts are visually appealing, but might not be your first choice if your goal is to represent your data in the most accurate way possible.
 
 ### Stacked Bar
 ![Stacked Bar Chart](assets/stacked-bar.png)
@@ -39,14 +36,30 @@ In second place is the pie chart. It had a higher average error than the bar cha
 - Max: 3.33
 - Average Error: 2.811
 
-The worst graph type that we tested was the stacked bar chart, with an average error of 2.811. For many people, it was hard to compare the stacked bars since you can't really line the top of the bars up easilly. We generally wouldnt reccomend the use of the stacked bar chart.
+The worst graph type that we tested was the stacked bar chart, with an average error of 2.811. For many people, it was hard to compare the stacked bars since you can't really line the top of the bars up easily. We generally wouldn’t recommend the use of the stacked bar chart. While our experiment only looked at a stacked bar chart with one bar, we predict that the accuracy would only go down as more bars were added to the chart.
+
+## Some additional Graphs
+
+We created a couple of graphs in Tableau to help explain our data. Here they are.
+
+### Accuracy by Viz Type
+![Accuracy by Viz Type](Tableau/Accuracy%20by%20vizType.png)
+
+Description here
+
+### Average True Reported Percent’s by Viz Type
+![Average True Reported Percent’s by Viz Type](Tableau/Average%20TrueReported%20Percents%20by%20vizType.png)
+
+Description here
 
 ## Technical Achievements
-1. We used react.js to create our website. This was a learning experience for both of us, but it served as a good intro to these component based frameworks.
+1. We used react.js to create our website. This was a learning experience for both of us, but it served as a good intro to these component-based frameworks.
 2. We ensure that user input is a valid number between 0 and 100, and don't let them continue to the next graph unless their input is good
+3. We created some additional graphs in tableau to help explain our data.
 
 ## Design Achievements
-1. We implemented a navbar, which was tougher than expected. GitHub pages didnt play well with our original implementation, so we ended up using a [HashRouter](https://reacttraining.com/react-router/web/api/HashRouter)
+1. We implemented a navbar, which was tougher than expected. GitHub pages didn’t play well with our original implementation, so we ended up using a [HashRouter](https://reacttraining.com/react-router/web/api/HashRouter)
+2. While the website was very simple, we used bootstrap to style the different elements and components throughout the website.
 
 ## Project Setup
 
@@ -100,3 +113,4 @@ Build the app for deployment. Run before `deploy`
 `deploy`
 
 Deploys the latest build to github pages. Note that the gh-pages branch is deployed, and not master
+
