@@ -1,0 +1,49 @@
+﻿vizType,participantID,trialNumber,truePercent,reportedPercent,LogError
+Bar,_aag21ljue,1,65,60,2.357552005
+Bar,_aag21ljue,2,86,85,0.169925001
+Bar,_gghxa2r5t,1,57,65,3.022367813
+Bar,_gghxa2r5t,4,92,95,1.64385619
+Bar,_7hvjis5dh,1,93,95,1.087462841
+Bar,_7hvjis5dh,2,91,95,2.044394119
+Bar,_bhilhh76y,2,59,60,0.169925001
+Bar,_bhilhh76y,5,99,95,2.044394119
+Bar,_0ulojgloc,1,77,75,1.087462841
+Bar,_0ulojgloc,6,88,88,0
+Bar,_40s77kip0,2,87,80,2.832890014
+Bar,_40s77kip0,5,84,80,2.044394119
+Bar,_s4rasb25r,4,92,90,1.087462841
+Bar,_s4rasb25r,6,86,96,3.339850003
+Bar,_e0zmxssmr,4,76,75,0.169925001
+Bar,_e0zmxssmr,5,87,90,1.64385619
+Pie,_aag21ljue,4,37,35,1.087462841
+Pie,_aag21ljue,5,100,90,3.339850003
+Pie,_gghxa2r5t,2,56,50,2.614709844
+Pie,_gghxa2r5t,6,67,70,1.64385619
+Pie,_7hvjis5dh,3,67,80,3.714245518
+Pie,_7hvjis5dh,4,57,60,1.64385619
+Pie,_bhilhh76y,3,80,75,2.357552005
+Pie,_bhilhh76y,6,38,33,2.357552005
+Pie,_0ulojgloc,2,33,29,2.044394119
+Pie,_0ulojgloc,4,100,99,0.169925001
+Pie,_40s77kip0,3,86,90,2.044394119
+Pie,_40s77kip0,4,67,70,1.64385619
+Pie,_s4rasb25r,2,50,50,0
+Pie,_s4rasb25r,5,100,99,0.169925001
+Pie,_e0zmxssmr,3,40,37,1.64385619
+Pie,_e0zmxssmr,6,50,40,3.339850003
+Stacked Bar,_aag21ljue,3,74,65,3.189824559
+Stacked Bar,_aag21ljue,6,84,65,4.257387843
+Stacked Bar,_gghxa2r5t,3,73,65,3.022367813
+Stacked Bar,_gghxa2r5t,5,80,70,3.339850003
+Stacked Bar,_7hvjis5dh,5,80,70,3.339850003
+Stacked Bar,_7hvjis5dh,6,94,75,4.257387843
+Stacked Bar,_bhilhh76y,1,88,80,3.022367813
+Stacked Bar,_bhilhh76y,4,98,100,1.087462841
+Stacked Bar,_0ulojgloc,3,97,95,1.087462841
+Stacked Bar,_0ulojgloc,5,77,80,1.64385619
+Stacked Bar,_40s77kip0,1,76,80,2.044394119
+Stacked Bar,_40s77kip0,6,88,100,3.599912842
+Stacked Bar,_s4rasb25r,1,81,70,3.475733431
+Stacked Bar,_s4rasb25r,3,97,90,2.832890014
+Stacked Bar,_e0zmxssmr,1,100,90,3.339850003
+Stacked Bar,_e0zmxssmr,2,94,92,1.087462841
