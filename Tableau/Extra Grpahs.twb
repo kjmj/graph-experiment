@@ -1,0 +1,451 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20194.20.0125.0835                               -->
+<workbook original-version='18.1' source-build='2019.4.3 (20194.20.0125.0835)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <SheetIdentifierTracking ignorable='true' predowngraded='true' />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Master' inline='true' name='federated.0nb7qmu0i2lqpi15c17161ndhywo' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Master' name='textscan.1cwhxlb018evu318nl3341fog2up'>
+            <connection class='textscan' directory='C:/Users/manis/Documents/CS480X-DataVis/Tableau' filename='Master.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1cwhxlb018evu318nl3341fog2up' name='Master.csv' table='[Master#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='string' name='vizType' ordinal='0' />
+            <column datatype='string' name='participantID' ordinal='1' />
+            <column datatype='integer' name='trialNumber' ordinal='2' />
+            <column datatype='integer' name='truePercent' ordinal='3' />
+            <column datatype='integer' name='reportedPercent' ordinal='4' />
+            <column datatype='real' name='LogError' ordinal='5' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Master.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>vizType</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[vizType]</local-name>
+            <parent-name>[Master.csv]</parent-name>
+            <remote-alias>vizType</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>participantID</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[participantID]</local-name>
+            <parent-name>[Master.csv]</parent-name>
+            <remote-alias>participantID</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trialNumber</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[trialNumber]</local-name>
+            <parent-name>[Master.csv]</parent-name>
+            <remote-alias>trialNumber</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>truePercent</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[truePercent]</local-name>
+            <parent-name>[Master.csv]</parent-name>
+            <remote-alias>truePercent</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>reportedPercent</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[reportedPercent]</local-name>
+            <parent-name>[Master.csv]</parent-name>
+            <remote-alias>reportedPercent</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>LogError</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[LogError]</local-name>
+            <parent-name>[Master.csv]</parent-name>
+            <remote-alias>LogError</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='PercentDifference' datatype='integer' name='[Calculation_1210060944961327104]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='ABS([reportedPercent] - [truePercent])' />
+      </column>
+      <column caption='Log Error' datatype='real' name='[LogError]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Participant ID' datatype='string' name='[participantID]' role='dimension' type='nominal' />
+      <column caption='Reported Percent' datatype='integer' name='[reportedPercent]' role='measure' type='quantitative' />
+      <column caption='Trial Number' datatype='integer' name='[trialNumber]' role='dimension' type='ordinal' />
+      <column caption='True Percent' datatype='integer' name='[truePercent]' role='measure' type='quantitative' />
+      <column caption='Viz Type' datatype='string' name='[vizType]' role='dimension' type='nominal' />
+      <column-instance column='[Calculation_1210060944961327104]' derivation='Avg' name='[avg:Calculation_1210060944961327104:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[reportedPercent]' derivation='Avg' name='[avg:reportedPercent:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[truePercent]' derivation='Avg' name='[avg:truePercent:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_1210060944961327104]' derivation='Sum' name='[sum:Calculation_1210060944961327104:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[LogError]' derivation='Sum' name='[sum:LogError:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[reportedPercent]' derivation='Sum' name='[sum:reportedPercent:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[truePercent]' derivation='Sum' name='[sum:truePercent:qk]' pivot='key' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.481844' measure-ordering='alphabetic' measure-percentage='0.518156' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0nb7qmu0i2lqpi15c17161ndhywo].[avg:reportedPercent:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0nb7qmu0i2lqpi15c17161ndhywo].[sum:reportedPercent:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.0nb7qmu0i2lqpi15c17161ndhywo].[avg:Calculation_1210060944961327104:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.0nb7qmu0i2lqpi15c17161ndhywo].[sum:Calculation_1210060944961327104:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.0nb7qmu0i2lqpi15c17161ndhywo].[sum:LogError:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.0nb7qmu0i2lqpi15c17161ndhywo]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0nb7qmu0i2lqpi15c17161ndhywo].[avg:truePercent:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0nb7qmu0i2lqpi15c17161ndhywo].[sum:truePercent:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Accuracy by vizType'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Master' name='federated.0nb7qmu0i2lqpi15c17161ndhywo' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0nb7qmu0i2lqpi15c17161ndhywo'>
+            <column caption='PercentDifference' datatype='integer' name='[Calculation_1210060944961327104]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='ABS([reportedPercent] - [truePercent])' />
+            </column>
+            <column-instance column='[Calculation_1210060944961327104]' derivation='Avg' name='[avg:Calculation_1210060944961327104:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[vizType]' derivation='None' name='[none:vizType:nk]' pivot='key' type='nominal' />
+            <column caption='Reported Percent' datatype='integer' name='[reportedPercent]' role='measure' type='quantitative' />
+            <column caption='True Percent' datatype='integer' name='[truePercent]' role='measure' type='quantitative' />
+            <column caption='Viz Type' datatype='string' name='[vizType]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.0nb7qmu0i2lqpi15c17161ndhywo].[none:vizType:nk]' value='208' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0nb7qmu0i2lqpi15c17161ndhywo].[avg:Calculation_1210060944961327104:qk]</rows>
+        <cols>[federated.0nb7qmu0i2lqpi15c17161ndhywo].[none:vizType:nk]</cols>
+      </table>
+      <simple-id uuid='{C3C40FAD-79D6-40ED-92C6-5602A9CF99B3}' />
+    </worksheet>
+    <worksheet name='Average True/Reported Percents by vizType'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Master' name='federated.0nb7qmu0i2lqpi15c17161ndhywo' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0nb7qmu0i2lqpi15c17161ndhywo'>
+            <column-instance column='[reportedPercent]' derivation='Avg' name='[avg:reportedPercent:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[truePercent]' derivation='Avg' name='[avg:truePercent:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[vizType]' derivation='None' name='[none:vizType:nk]' pivot='key' type='nominal' />
+            <column caption='Reported Percent' datatype='integer' name='[reportedPercent]' role='measure' type='quantitative' />
+            <column caption='True Percent' datatype='integer' name='[truePercent]' role='measure' type='quantitative' />
+            <column caption='Viz Type' datatype='string' name='[vizType]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0nb7qmu0i2lqpi15c17161ndhywo].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0nb7qmu0i2lqpi15c17161ndhywo].[avg:reportedPercent:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0nb7qmu0i2lqpi15c17161ndhywo].[avg:truePercent:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.0nb7qmu0i2lqpi15c17161ndhywo].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.0nb7qmu0i2lqpi15c17161ndhywo].[avg:truePercent:qk]&quot;</bucket>
+              <bucket>&quot;[federated.0nb7qmu0i2lqpi15c17161ndhywo].[avg:reportedPercent:qk]&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <slices>
+            <column>[federated.0nb7qmu0i2lqpi15c17161ndhywo].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.0nb7qmu0i2lqpi15c17161ndhywo].[:Measure Names]' value='240' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0nb7qmu0i2lqpi15c17161ndhywo].[:Measure Names]' />
+            </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0nb7qmu0i2lqpi15c17161ndhywo].[Multiple Values]</rows>
+        <cols>([federated.0nb7qmu0i2lqpi15c17161ndhywo].[none:vizType:nk] / [federated.0nb7qmu0i2lqpi15c17161ndhywo].[:Measure Names])</cols>
+      </table>
+      <simple-id uuid='{50EBF620-24DA-4882-827C-68635530EAE0}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.5' source-height='44'>
+    <window class='worksheet' name='Accuracy by vizType'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0nb7qmu0i2lqpi15c17161ndhywo].[none:participantID:nk]</field>
+            <field>[federated.0nb7qmu0i2lqpi15c17161ndhywo].[none:vizType:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{12F18C11-94DD-4A5E-B5AF-C35A41276220}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Average True/Reported Percents by vizType'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0nb7qmu0i2lqpi15c17161ndhywo].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0nb7qmu0i2lqpi15c17161ndhywo].[:Measure Names]</field>
+            <field>[federated.0nb7qmu0i2lqpi15c17161ndhywo].[none:trialNumber:ok]</field>
+            <field>[federated.0nb7qmu0i2lqpi15c17161ndhywo].[none:vizType:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{CB0FDCAC-6157-412B-ACE0-724E616CF40A}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Accuracy by vizType' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Average True/Reported Percents by vizType' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
