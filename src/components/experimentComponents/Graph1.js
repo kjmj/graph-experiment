@@ -124,7 +124,7 @@ class Graph1 extends React.Component {
           </div>
           <Row>
             <Col>
-              <Form.Control type="text" placeholder="Answer" ref={node => this.textField = node}/>
+              <Form.Control type="text" placeholder="What percent is the smaller marked bar of the bigger marked bar?" ref={node => this.textField = node}/>
             </Col>
             <Col>
               <Button onClick={this.saveAndContinue}>Next</Button>

@@ -145,7 +145,7 @@ class Graph4 extends React.Component {
           </div>
           <Row>
             <Col>
-              <Form.Control type="text" placeholder="Answer" ref={node => this.textField = node}/>
+              <Form.Control type="text" placeholder="What percent is the smaller marked slice of the bigger marked slice?" ref={node => this.textField = node}/>
             </Col>
             <Col>
               <Button onClick={this.saveAndContinue}>Next</Button>
