@@ -8,5 +8,5 @@ export const isGoodInput = (text) => {
 };
 
 export const badInputAlert = () => {
-  alert('Please enter a number between 1 and 100')
+  alert('Please enter a number between 0 and 100')
 };
