@@ -40,7 +40,7 @@ The worst graph type that we tested was the stacked bar chart, with an average e
 
 ## Some additional Graphs
 
-We created a couple of graphs in Tableau to help explain our data. Here they are. THe Tableau workbook can also be accessed in the Tableau folder.
+We created a couple of graphs in Tableau to help explain our data. Here they are. The Tableau workbook can also be accessed in the Tableau folder.
 
 ### Accuracy by Viz Type
 ![Accuracy by Viz Type](Tableau/Accuracy%20by%20vizType.png)
