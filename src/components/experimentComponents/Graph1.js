@@ -3,6 +3,7 @@ import * as d3 from 'd3';
 import {Button, Form} from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import {isGoodInput, badInputAlert} from './Util'
 
 class Graph1 extends React.Component {
   graphType = "Bar";
@@ -11,15 +12,19 @@ class Graph1 extends React.Component {
   saveAndContinue = (e) => {
     e.preventDefault();
 
-    const json = {
-      'vizType': this.graphType,
-      'participantID': this.props.values.participantID,
-      'trialNumber': this.props.values.step,
-      'truePercent': this.truePercent,
-      'reportedPercent': parseInt(this.textField.value)
-    };
-    this.props.addData(json);
-    this.props.nextStep();
+    if(isGoodInput(this.textField.value)) {
+      const json = {
+        'vizType': this.graphType,
+        'participantID': this.props.values.participantID,
+        'trialNumber': this.props.values.step,
+        'truePercent': this.truePercent,
+        'reportedPercent': parseInt(this.textField.value)
+      };
+      this.props.addData(json);
+      this.props.nextStep();
+    } else {
+      badInputAlert();
+    }
   };
 
   constructor(props) {
