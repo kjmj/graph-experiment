@@ -1,6 +1,8 @@
 import React from 'react';
 import * as d3 from 'd3';
 import {Button, Form} from "react-bootstrap";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 class Graph3 extends React.Component {
   graphType = "Stacked Bar";
@@ -120,8 +122,14 @@ class Graph3 extends React.Component {
           <div ref={this.divRef}>
             <p>Stacked Bar Graph</p>
           </div>
-          <Form.Control type="text" placeholder="Answer" ref={node => this.textField = node}/>
-          <Button onClick={this.saveAndContinue}>Next</Button>
+          <Row>
+            <Col>
+              <Form.Control type="text" placeholder="Answer" ref={node => this.textField = node}/>
+            </Col>
+            <Col>
+              <Button onClick={this.saveAndContinue}>Next</Button>
+            </Col>
+          </Row>
         </div>
     )
   }

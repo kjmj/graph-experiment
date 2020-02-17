@@ -1,6 +1,8 @@
 import React from 'react';
 import * as d3 from 'd3';
 import {Button, Form} from "react-bootstrap";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 class Graph1 extends React.Component {
   graphType = "Bar";
@@ -115,8 +117,14 @@ class Graph1 extends React.Component {
           <div ref={this.divRef}>
             <p>Here is the other graph, transferred over. You might have to scroll to find the "next" button</p>
           </div>
-          <Form.Control type="text" placeholder="Answer" ref={node => this.textField = node}/>
-          <Button onClick={this.saveAndContinue}>Next</Button>
+          <Row>
+            <Col>
+              <Form.Control type="text" placeholder="Answer" ref={node => this.textField = node}/>
+            </Col>
+            <Col>
+              <Button onClick={this.saveAndContinue}>Next</Button>
+            </Col>
+          </Row>
         </div>
     )
   }
