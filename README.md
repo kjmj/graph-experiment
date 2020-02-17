@@ -1,12 +1,45 @@
 # Assignment 3 - Replicating a Classic Experiment  
 
-GitHub Pages: https://kjmj.github.io/03-Experiment/#/
+## The Experiment
+Link: https://kjmj.github.io/03-Experiment/#/
 
-We designed a simple experiment to determine if bar, stacked bar, or pie charts are the best. The user will be shown a graph with two marked bars/slices. Then, they have to determine which percent the smaller bar/slice is of the larger bar/slice.
+We designed a simple experiment to determine if bar, stacked bar, or pie charts are the best. The user will be shown a graph with two marked bars/slices. Then, they have to determine which percent the smaller bar/slice is of the larger bar/slice. For example, if the smaller chart is half the size of the larger chart, the user should enter '50'.
 
-For example, if the smaller chart is half the size of the larger chart, the user should enter '50'
+Some technical things - there was always one bar/slice in-between the two marked bars/slices, and we chose to exclude any sort of axis's from the charts. The bar chart was rendered upside down, and the stacked bar chart had only one bar. 
 
-TODO describe our findings
+
+
+
+## Results
+
+Here is the confidence interval for the three charts. We will talk in more detail about our findings below.
+
+![Confidence Intervals](Experiment-R/Confidence%20Intervals.png)
+
+### Bar
+![Bar Chart](assets/bar.png)
+- Min: 1.12
+- Max: 2.06
+- Average Error: 1.571
+
+We thought that bar charts would perform the best, and in our experiment, it did. The bar chart had the lowest error, which is likely due to the fact that it is easiest for people to line up the bar heights.
+
+
+### Pie
+![Pie Chart](assets/pie.png)
+- Min: 1.76
+- Max: 2.89
+- Average Error: 2.339
+
+In second place is the pie chart. It had a higher average error than the bar chart at 2.339. Pie charts can be decieving, and while they may be good for representing a few categories, they don't always give the most accurate representation of your data.
+
+### Stacked Bar
+![Stacked Bar Chart](assets/stacked-bar.png)
+- Min: 2.23
+- Max: 3.33
+- Average Error: 2.811
+
+The worst graph type that we tested was the stacked bar chart, with an average error of 2.811. For many people, it was hard to compare the stacked bars since you can't really line the top of the bars up easilly. We generally wouldnt reccomend the use of the stacked bar chart.
 
 ## Technical Achievements
 1. We used react.js to create our website. This was a learning experience for both of us, but it served as a good intro to these component based frameworks.
@@ -30,8 +63,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
-
-
 
 ## Other Scripts
 
