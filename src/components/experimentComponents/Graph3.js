@@ -125,7 +125,7 @@ class Graph3 extends React.Component {
     return (
         <div>
           <div ref={this.divRef}>
-            <p>Stacked Bar Graph</p>
+            <p>Stacked Bar Chart</p>
           </div>
           <Row>
             <Col>

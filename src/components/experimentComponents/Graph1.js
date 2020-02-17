@@ -120,7 +120,7 @@ class Graph1 extends React.Component {
     return (
         <div>
           <div ref={this.divRef}>
-            <p>Here is the other graph, transferred over. You might have to scroll to find the "next" button</p>
+            <p>Bar Chart</p>
           </div>
           <Row>
             <Col>
