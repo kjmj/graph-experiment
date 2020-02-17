@@ -18,6 +18,6 @@ sbci <- boot.ci(sbresults, type = "bca")
 
 BCI <- read_csv("Bootstrap CI.csv")
 
-ggplot(BCI, aes(vizType, Error)) +
+ggplot(BCI, aes(vizType, LogError)) +
   geom_errorbar(aes(ymin = BCI$min, ymax = BCI$max)) +
   geom_point(aes(x=BCI$vizType, y=BCI$Mean), colour="black", size=3)

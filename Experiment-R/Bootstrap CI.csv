@@ -1,4 +1,4 @@
-﻿vizType,min,max,Mean,Error
-Bar,1.02,2.08,1.546,0.5
-Pie,1.34,2.35,1.863,2
-Stacked Bar,2.22,3.22,2.789,3.5
+﻿vizType,min,max,Mean,LogError
+Bar,1.12,2.06,1.571,0.5
+Pie,1.76,2.89,2.339,2
+Stacked Bar,2.23,3.33,2.811,3.5
