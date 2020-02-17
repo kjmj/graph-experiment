@@ -3,16 +3,16 @@
 ## The Experiment
 Link: https://kjmj.github.io/03-Experiment/#/
 
-We designed a simple experiment to determine if bar, stacked bar, or pie charts are the best. The user will be shown a graph with two marked bars/slices. Then, they have to determine which percent the smaller bar/slice is of the larger bar/slice. For example, if the smaller chart is half the size of the larger chart, the user should enter '50'.
+We designed a simple experiment to determine if bar, stacked bar, or pie charts are better for a user to differentiate length. The user was shown a graph with two marked bars/slices. Then, they had to determine which percent the smaller bar/slice is of the larger bar/slice. For example, if the smaller chart is half the size of the larger chart, the user would ideally enter '50'.
 
-Some technical things - there was always one bar/slice in-between the two marked bars/slices, and we chose to exclude any sort of axis's from the charts. The bar chart was rendered upside down, and the stacked bar chart had only one bar. 
+Some technical things - there was always one bar/slice in-between the two marked bars/slices, and we chose to exclude any sort of axis's from the charts. The bar chart was rendered upside down, and the stacked bar chart had only one bar. We chose to remove elements such as the axis in order to give the user a higher chance to focus on the graphs. Having labels and such could either distract the user or cause them to reply on such feature when determining their answer. We wanted to collect the purest data we could. We chose to have the bar graph upside-down to see if, when compared to Cleveland and McGill’s results, there would be a large difference.
 
 ## Results
 
 ### Confidence Interval
 ![Confidence Intervals](Experiment-R/Confidence%20Intervals.png)
 
-Here is the confidence interval for the three charts. As you can see, the bar chart performed best, followed by pie and then stacked bar. We will talk in more detail about our findings below.
+Here is the confidence interval for the three charts. As you can see, the bar chart performed best, followed by pie and then stacked bar. We will talk in more detail about our findings below. Overall, however, our results did line up generally with Cleveland and McGill’s results.
 
 ### Bar
 ![Bar Chart](assets/bar.png)
@@ -40,22 +40,22 @@ The worst graph type that we tested was the stacked bar chart, with an average e
 
 ## Some additional Graphs
 
-We created a couple of graphs in Tableau to help explain our data. Here they are.
+We created a couple of graphs in Tableau to help explain our data. Here they are. THe Tableau workbook can also be accessed in the Tableau folder.
 
 ### Accuracy by Viz Type
 ![Accuracy by Viz Type](Tableau/Accuracy%20by%20vizType.png)
 
-Description here
+This viz shows the Average Percent Difference by viz type. Average percent difference is the average of ABS(ReportedPercent - TruePercent) for each viz type. AS you can see, the graph alligns with our Confidence Interval Graph, showing Bar graphs eith the more precise answers and Stacked Bar graphs with the least accurate answers.
 
 ### Average True Reported Percent’s by Viz Type
 ![Average True Reported Percent’s by Viz Type](Tableau/Average%20TrueReported%20Percents%20by%20vizType.png)
 
-Description here
+This viz shows the difference for each viz type between the average true percent and the average reported percent. This allows to see, on averge, is users were answers higher of lower for each graph type. Bar graphs were almost perfect, pie charts were reported slightly below the true percent, and stacked bar graphs were reported a larger amount below the true percent. This shows that, out of the three, users had the hardest time with the stacked bar graphs and tended provide lower answers.
 
 ## Technical Achievements
 1. We used react.js to create our website. This was a learning experience for both of us, but it served as a good intro to these component-based frameworks.
-2. We ensure that user input is a valid number between 0 and 100, and don't let them continue to the next graph unless their input is good
-3. We created some additional graphs in tableau to help explain our data.
+2. We ensure that user input is a valid number between 1 and 100, and don't let them continue to the next graph unless their input is good.
+3. We created some additional graphs in Tableau to help explain and renforce our data. (see above)
 
 ## Design Achievements
 1. We implemented a navbar, which was tougher than expected. GitHub pages didn’t play well with our original implementation, so we ended up using a [HashRouter](https://reacttraining.com/react-router/web/api/HashRouter)
