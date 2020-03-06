@@ -1,7 +1,7 @@
 # Assignment 3 - Replicating a Classic Experiment  
 
 ## The Experiment
-Link: https://kjmj.github.io/03-Experiment/#/
+Link: https://kjmj.github.io/graph-experiment/#/
 
 We designed a simple experiment to determine if bar, stacked bar, or pie charts are better for a user to differentiate length. The user was shown a graph with two marked bars/slices. Then, they had to determine which percent the smaller bar/slice is of the larger bar/slice. For example, if the smaller chart is half the size of the larger chart, the user would ideally enter '50'.
 

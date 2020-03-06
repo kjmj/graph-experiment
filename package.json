@@ -1,6 +1,6 @@
 {
-  "name": "03-experiemnt",
-  "homepage": "https://kjmj.github.io/03-Experiment",
+  "name": "graph-experiment",
+  "homepage": "https://kjmj.github.io/graph-experiment",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
